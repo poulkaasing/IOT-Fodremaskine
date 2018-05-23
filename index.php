@@ -18,10 +18,10 @@ if (isset($_POST['GiMad']))
             shell_exec("/usr/local/bin/gpio pwm-ms");
             shell_exec("/usr/local/bin/gpio pwmc 1920");
             shell_exec("/usr/local/bin/gpio pwmr 200"); #0.1 ms per enhed
-            shell_exec("/usr/local/bin/gpio pwm 1 15"); # +90 grader 
+            shell_exec("/usr/local/bin/gpio pwm 1 15"); # Åben
             
             sleep(2); # Venter 5 sekunder
-            shell_exec("/usr/local/bin/gpio pwm 1 05"); # -90 grader
+            shell_exec("/usr/local/bin/gpio pwm 1 05"); # Luk
             $gpio_on = shell_exec("/usr/local/bin/gpio -g write 3 1"); # Sluk LED
             date_default_timezone_set('Australia/Melbourne');
             $date = date('m/d/Y h:i:s a', time());
@@ -38,8 +38,3 @@ if (isset($_POST['GiMad']))
 
 </form>
 </html>
-
-<!-- Links
- https://raspberrypi.stackexchange.com/questions/4906/control-hardware-pwm-frequency 
-http://www.crompton.com/hamradio/BeagleBoneBlackAllstar/GPIO_how-to.pdf
--->
